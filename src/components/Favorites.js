@@ -33,7 +33,7 @@ class Favorites extends React.Component {
         const { trackName, previewUrl, trackId } = music;
         return (
           <MusicCard
-            key={ trackName }
+            key={ trackId }
             trackName={ trackName }
             previewUrl={ previewUrl }
             trackId={ trackId }
