@@ -34,11 +34,13 @@ class Album extends React.Component {
             <p data-testid="artist-name">{api[0].artistName}</p>
             <p data-testid="album-name">{api[0].collectionName}</p>
             {api.filter((music) => music.trackId).map((music) => {
-              const { trackName, previewUrl } = music;
+              const { trackName, previewUrl, trackId } = music;
               return (<MusicCard
                 key={ trackName }
                 trackName={ trackName }
                 previewUrl={ previewUrl }
+                trackId={ trackId }
+                music={ music }
               />);
             })}
           </div>
@@ -51,17 +53,9 @@ class Album extends React.Component {
 Album.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.string,
     }),
   }),
-};
-
-Album.defaultProps = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      id: PropTypes.string.isRequired,
-    }),
-  }),
-};
+}.isRequired;
 
 export default Album;
