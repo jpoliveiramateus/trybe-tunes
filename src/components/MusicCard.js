@@ -1,12 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 
 class MusicCard extends React.Component {
   state = {
     loading: false,
+    check: false,
   };
+
+  async componentDidMount() {
+    const favoriteSongs = await getFavoriteSongs();
+    const { music: { trackId } } = this.props;
+    const filter = favoriteSongs.some((song) => song.trackId === trackId);
+    this.setState({
+      check: filter,
+    });
+  }
 
   handleChange = ({ target }) => {
     const { name } = target;
@@ -26,7 +36,7 @@ class MusicCard extends React.Component {
 
   render() {
     const { trackName, previewUrl, trackId } = this.props;
-    const { loading } = this.state;
+    const { loading, check } = this.state;
     return (
       <div>
         <p>{trackName}</p>
@@ -41,6 +51,7 @@ class MusicCard extends React.Component {
             name="check"
             id={ trackId }
             onChange={ this.handleChange }
+            checked={ check }
           />
         </label>
         {loading && <Loading />}
