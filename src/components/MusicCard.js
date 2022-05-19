@@ -18,7 +18,7 @@ class MusicCard extends React.Component {
     });
   }
 
-  handleChange = async ({ target }) => {
+  handleChange = ({ target }) => {
     const { name } = target;
     const { check } = this.state;
     const { music } = this.props;
@@ -29,11 +29,11 @@ class MusicCard extends React.Component {
       if (check) {
         this.setState({ loading: true });
         await removeSong(music);
-        this.setState({ loading: false, check: false });
+        this.setState({ loading: false });
       } else {
         this.setState({ loading: true });
         await addSong(music);
-        this.setState({ loading: false, check: true });
+        this.setState({ loading: false });
       }
     });
   };
