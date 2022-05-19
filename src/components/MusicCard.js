@@ -21,7 +21,7 @@ class MusicCard extends React.Component {
   handleChange = ({ target }) => {
     const { name } = target;
     const { check } = this.state;
-    const { music } = this.props;
+    const { music, attList } = this.props;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
@@ -29,6 +29,7 @@ class MusicCard extends React.Component {
       if (check) {
         this.setState({ loading: true });
         await removeSong(music);
+        attList();
         this.setState({ loading: false });
       } else {
         this.setState({ loading: true });
@@ -69,6 +70,11 @@ MusicCard.propTypes = {
   previewUrl: PropTypes.string,
   trackId: PropTypes.number,
   music: PropTypes.object,
+  attList: PropTypes.func,
 }.isRequired;
+
+MusicCard.defaultProps = {
+  attList: () => {},
+};
 
 export default MusicCard;
