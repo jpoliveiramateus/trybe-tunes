@@ -53,30 +53,33 @@ class Login extends React.Component {
   render() {
     const { textInput, controlButton, loading } = this.state;
     return (
-      <div data-testid="page-login">
-        { loading ? this.redirectLogin() : (
-          <div>
-            <input
-              type="text"
-              value={ textInput }
-              name="textInput"
-              onChange={ this.handleChange }
-              data-testid="login-name-input"
-            />
-            <button
-              type="button"
-              data-testid="login-submit-button"
-              disabled={ controlButton }
-              onClick={ this.loading }
-            >
-              {' '}
-              Entrar
-              {' '}
-
-            </button>
+      loading ? this.redirectLogin() : (
+        <div data-testid="page-login" className="area-login">
+          <div className="login">
+            <img className="img-login" src="logo192.png" alt="logoreact" />
+            <div className="form">
+              <input
+                type="text"
+                value={ textInput }
+                className="input-name-login"
+                name="textInput"
+                placeholder="Nome"
+                onChange={ this.handleChange }
+                data-testid="login-name-input"
+              />
+              <button
+                type="button"
+                data-testid="login-submit-button"
+                className="login-submit-button"
+                disabled={ controlButton }
+                onClick={ this.loading }
+              >
+                Entrar
+              </button>
+            </div>
           </div>
-        ) }
-      </div>
+        </div>
+      )
     );
   }
 }

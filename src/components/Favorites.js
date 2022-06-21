@@ -43,7 +43,13 @@ class Favorites extends React.Component {
         );
       });
     }
-    return (<p>Não há músicas favoritas</p>);
+    return (
+      <p
+        style={ { color: 'white',
+          textAlign: 'center' } }
+      >
+        Não há músicas favoritas
+      </p>);
   }
 
   render() {

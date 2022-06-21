@@ -29,8 +29,8 @@ class MusicCard extends React.Component {
       if (check) {
         this.setState({ loading: true });
         await removeSong(music);
-        attList();
         this.setState({ loading: false });
+        attList();
       } else {
         this.setState({ loading: true });
         await addSong(music);
@@ -43,13 +43,12 @@ class MusicCard extends React.Component {
     const { trackName, previewUrl, trackId } = this.props;
     const { loading, check } = this.state;
     return (
-      <div>
+      <div className="music-card-player">
         <p>{trackName}</p>
         <audio data-testid="audio-component" src={ previewUrl } controls>
           <track kind="captions" />
         </audio>
         <label htmlFor={ trackId }>
-          Favorita
           <input
             type="checkbox"
             data-testid={ `checkbox-music-${trackId}` }
@@ -58,6 +57,7 @@ class MusicCard extends React.Component {
             onChange={ this.handleChange }
             checked={ check }
           />
+          Favorita
         </label>
         {loading && <Loading />}
       </div>

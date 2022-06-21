@@ -22,12 +22,16 @@ class Profile extends React.Component {
     const { infoUser } = this.state;
     const { name, image, email, description } = infoUser;
     return (
-      <div>
-        <img data-testid="profile-image" src={ image } alt="imagem do perfil" />
+      <div className="profile">
+        <img
+          data-testid="profile-image"
+          src={ image || 'https://cdn-icons-png.flaticon.com/512/74/74472.png' }
+          alt="imagem do perfil"
+        />
         <p>{name}</p>
         <p>{email}</p>
         <p>{description}</p>
-        <Link to="/profile/edit">Editar perfil</Link>
+        <Link className="link-edit-perfil" to="/profile/edit">Editar perfil</Link>
       </div>
     );
   }
@@ -35,7 +39,7 @@ class Profile extends React.Component {
   render() {
     const { loading } = this.state;
     return (
-      <div data-testid="page-profile">
+      <div data-testid="page-profile" className="contain-profile">
         <Header />
         {loading ? <Loading /> : this.profile()}
       </div>

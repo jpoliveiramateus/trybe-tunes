@@ -36,9 +36,14 @@ class ProfileEdit extends React.Component {
 
   controlButton = () => {
     const { name, email, desc, image } = this.state;
-    if (name && email && desc && image) {
+    const mailFormat = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+    if (name && email && desc && image && email.match(mailFormat)) {
       this.setState({
         button: false,
+      });
+    } else {
+      this.setState({
+        button: true,
       });
     }
   }
@@ -55,7 +60,7 @@ class ProfileEdit extends React.Component {
     const { name, email, desc, image, button, redirect } = this.state;
     return (
       redirect ? <Redirect to="/profile" /> : (
-        <form style={ { display: 'flex', flexDirection: 'column' } }>
+        <form className="form-edit">
           <label htmlFor="input-name">
             Name:
             <input
@@ -118,7 +123,7 @@ class ProfileEdit extends React.Component {
   render() {
     const { loading } = this.state;
     return (
-      <div data-testid="page-profile-edit">
+      <div data-testid="page-profile-edit" className="page-profile-edit">
         <Header />
         {loading ? <Loading /> : this.editProfile()}
       </div>

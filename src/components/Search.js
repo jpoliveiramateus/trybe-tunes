@@ -54,24 +54,34 @@ class Search extends React.Component {
     const { api, nameArtist } = this.state;
     return (
       api.length > 0 ? (
-        <div>
+        <div className="list-music">
           <p>{`Resultado de álbuns de: ${nameArtist}`}</p>
-          {api.map((card) => {
-            const { artworkUrl100, collectionName, artistName, collectionId } = card;
-            return (
-              <div key={ collectionId }>
-                <img src={ artworkUrl100 } alt={ collectionName } />
-                <h4>{collectionName}</h4>
-                <p>{artistName}</p>
-                <Link
-                  to={ `/album/${collectionId}` }
-                  data-testid={ `link-to-album-${collectionId}` }
-                >
-                  Ir para o álbum
-                </Link>
-              </div>
-            );
-          })}
+          <div
+            style={ {
+              // border: '2px solid black',
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+            } }
+          >
+            {api.map((card) => {
+              const { artworkUrl100, collectionName, artistName, collectionId } = card;
+              return (
+                <div key={ collectionId } className="music-card">
+                  <img src={ artworkUrl100 } alt={ collectionName } />
+                  <h4>{collectionName}</h4>
+                  <p>{artistName}</p>
+                  <Link
+                    to={ `/album/${collectionId}` }
+                    className="link-album"
+                    data-testid={ `link-to-album-${collectionId}` }
+                  >
+                    Ir para o álbum
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
         </div>
       ) : (
         <p>Nenhum álbum foi encontrado</p>
@@ -88,14 +98,15 @@ class Search extends React.Component {
   render() {
     const { inputText, controlButton, loading } = this.state;
     return (
-      <div data-testid="page-search">
+      <div data-testid="page-search" className="page-search">
         <Header />
-        <div>
+        <div className="search">
           <input
             type="text"
             data-testid="search-artist-input"
             name="inputText"
             value={ inputText }
+            placeholder="Artista, músicas ou podcasts"
             onChange={ this.handleChange }
           />
           <button

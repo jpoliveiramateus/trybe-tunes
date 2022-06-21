@@ -30,9 +30,14 @@ class Album extends React.Component {
       <div data-testid="page-album">
         <Header />
         {loading ? <Loading /> : (
-          <div>
-            <p data-testid="artist-name">{api[0].artistName}</p>
-            <p data-testid="album-name">{api[0].collectionName}</p>
+          <div className="album-contain">
+            <div className="info-album">
+              <div>
+                <p data-testid="artist-name">{api[0].artistName}</p>
+                <p data-testid="album-name">{api[0].collectionName}</p>
+              </div>
+              <img src={ api[0].artworkUrl100 } alt={ api[0].collectionName } />
+            </div>
             {api.filter((music) => music.trackId).map((music) => {
               const { trackName, previewUrl, trackId } = music;
               return (<MusicCard
