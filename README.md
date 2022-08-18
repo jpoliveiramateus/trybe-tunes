@@ -5,6 +5,8 @@
   <img src="https://user-images.githubusercontent.com/99822908/185424767-6cfc4fa9-0aa7-4b37-ba77-e10f68df6f93.png" width="300px" />
 </div>
 
+## Aplicação: https://trybe-tunes-iota.vercel.app/
+
 ## 📄 Sobre
 
 O TrybeTunes é uma aplicação capaz de reproduzir músicas das mais variadas bandas e artistas, criar uma lista de músicas favoritas e editar o perfil da pessoa usuária logada. Essa aplicação é capaz de:
