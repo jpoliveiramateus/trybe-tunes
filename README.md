@@ -1,8 +1,9 @@
 # 🎶 Projeto Trybe Tunes
 
-![mobile](https://user-images.githubusercontent.com/99822908/185424015-b5f311ea-3ac3-44d4-984f-b4d2b7750dbf.png)
-![mobile (1)](https://user-images.githubusercontent.com/99822908/185424767-6cfc4fa9-0aa7-4b37-ba77-e10f68df6f93.png)
-
+<div display="flex">
+  <img src="https://user-images.githubusercontent.com/99822908/185424015-b5f311ea-3ac3-44d4-984f-b4d2b7750dbf.png" width="300px" />
+  <img src="https://user-images.githubusercontent.com/99822908/185424767-6cfc4fa9-0aa7-4b37-ba77-e10f68df6f93.png" width="300px" />
+</div>
 
 ## 📄 Sobre
 
