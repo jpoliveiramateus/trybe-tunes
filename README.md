@@ -77,4 +77,4 @@ npm test
 - TDD (Test Driven Development) - Desenvolvimento Orientado por Testes.
 
 ---
-⌨️ desenvolvido por [João Pedro Oliveira](https://www.linkedin.com/in/jo%C3%A3o-pedro-de-oliveira-mateus/) 😄
+⌨️ desenvolvido por [João Pedro Oliveira](https://www.linkedin.com/in/jpoliveira7/) 😄
